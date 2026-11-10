@@ -7,6 +7,11 @@
 @media(max-width:430px){.project-grid{grid-template-columns:1fr}.project-art{aspect-ratio:1.25}.hero-topline,.hero-bottomline{font-size:.53rem}.hero h1{font-size:clamp(4rem,18vw,5.5rem)}.brand-mark{width:34px;height:34px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
+/* Foto de perfil na seção Sobre */
+.about-photo{width:clamp(190px,20vw,280px);aspect-ratio:1;margin:2.5rem 0 2rem;overflow:hidden;border-radius:50%;background:var(--paper-deep);border:1px solid var(--line)}
+.about-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+@media(max-width:760px){.about-index{flex-direction:column;align-items:flex-start;gap:1rem}.about-photo{width:min(68vw,260px);margin:.5rem 0 1rem}}
+
 
 /* Páginas internas de projetos e laboratório */
 .detail-hero{padding-top:1.25rem}
@@ -50,7 +55,7 @@
 
 .site-header{position:absolute;top:0;left:0;right:0;color:#fff;border-bottom-color:rgba(255,255,255,.25)}
 .brand-mark{border-color:currentColor}
-.hero{width:100%;max-width:none;margin:0;padding:calc(90px + 1.25rem) 0 1.25rem;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background-image:linear-gradient(90deg,rgba(20,22,18,.78) 0%,rgba(20,22,18,.56) 42%,rgba(20,22,18,.12) 100%),url("imagens/render-jadim-paulistano-1.png");background-size:cover;background-position:center}
+.hero{width:100%;max-width:none;margin:0;padding:calc(90px + 1.25rem) 0 1.25rem;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;color:#fff;background-image:linear-gradient(90deg,rgba(20,22,18,.78) 0%,rgba(20,22,18,.56) 42%,rgba(20,22,18,.12) 100%),url("imagens/mapa-1.jpg");background-size:cover;background-position:center}
 .hero-topline,.hero-bottomline{padding-inline:var(--gutter);color:rgba(255,255,255,.78)}
 .hero-grid{grid-template-columns:minmax(0,1fr);flex:1;align-items:center;padding:clamp(4rem,8vw,8rem) var(--gutter)}
 .hero h1{font-size:clamp(2.5rem,5vw,5rem)}
