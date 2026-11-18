@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="site-header">
@@ -25,57 +25,47 @@
 
     <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
       <a href="#projetos">projetos</a>
-      <a href="#laboratorio">laboratório</a>
       <a href="#sobre">sobre</a>
-      <a class="nav-contact" href="#contato">vamos conversar <span aria-hidden="true">↗</span></a>
+      <a href="#contato">contato</a>
+    </nav>
+
+    <nav class="social-links header-social" aria-label="Redes sociais">
+      <a href="https://www.instagram.com/territoriolab.io/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/alineyuritm/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5A1.5 1.5 0 1 0 5 5.5a1.5 1.5 0 0 0 0 3ZM3.8 10h2.4v10H3.8V10Zm4 0h2.3v1.4h.1c.3-.6 1.2-1.7 3-1.7 3.2 0 3.8 2.1 3.8 4.8V20h-2.4v-4.9c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H7.8V10Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://alineyuritm.medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><mask id="medium-cutout-header"><rect width="24" height="24" fill="#fff"/><text x="4.2" y="16.2" fill="#000" font-family="Georgia, serif" font-size="9.5" font-weight="700">Me</text></mask><rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor" mask="url(#medium-cutout-header)"/></svg>
+      </a>
+      <a href="https://github.com/territorio-lab" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.4-1.1.7-1.3-2.3-.3-4.7-1.1-4.7-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.7 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.behance.net/alineyuri" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h6.2c2.8 0 4.4 1.4 4.4 3.5 0 1.3-.7 2.3-1.8 2.8 1.5.5 2.4 1.6 2.4 3.3 0 2.4-1.8 4-4.9 4H3V5Zm3 2.4v2.8h2.7c1.2 0 1.8-.5 1.8-1.4s-.6-1.4-1.8-1.4H6Zm0 5.1v3.5h3c1.4 0 2.1-.6 2.1-1.8s-.7-1.7-2.1-1.7H6Zm9.2 2.1h5.8c-.2 1.6-1.5 2.5-3.5 2.5-2.7 0-4.5-1.7-4.5-4.3s1.8-4.3 4.4-4.3c2.5 0 4 1.7 4 4.4v.5h-5.8c.1 1 .6 1.5 1.9 1.5.8 0 1.3-.2 1.6-.7h2.2c-.4 1.5-1.8 2.4-3.9 2.4-2.7 0-4.3-1.6-4.3-4.3 0-2.6 1.7-4.3 4.3-4.3 2.4 0 3.9 1.5 3.9 4.1v.4h-5.8c0 .1 0 .2.1.3h.1Zm0-1.8h3.4c-.1-.8-.6-1.2-1.6-1.2-1 0-1.6.4-1.8 1.2Z" fill="currentColor"/></svg>
+      </a>
     </nav>
   </header>
 
   <main id="conteudo">
-    <section class="hero section-shell" id="inicio">      
+    <section class="hero section-shell" id="inicio">
       <div class="hero-grid">
         <div class="hero-copy">
-          <h1>design<br><em>:: tecnologia ::</em><br>TERRITÓRIO</h1>
-          <p class="hero-description"><span>Laboratório de estudo e fabricação digital;<br>conectando projeto ao território (e/ou <em>ao corpo</em>).</p>
+          <h1>design, tecnologia e território</h1>
+          <p class="hero-description">Laboratório de estudo e fabricação digital; conectando projeto ao território (ou corpo)</p>
           <div class="about-tags"><span>RHINO / GRASSHOPPER</span><span>CAD / CAM</span><span>CNC</span><span>GIS</span><span>CULTURA MAKER</span><span>OPEN SOURCE</span></div>
-          <nav class="social-links" aria-label="Redes sociais">
-            <a href="https://www.instagram.com/territoriolab.io/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/alineyuritm/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5A1.5 1.5 0 1 0 5 5.5a1.5 1.5 0 0 0 0 3ZM3.8 10h2.4v10H3.8V10Zm4 0h2.3v1.4h.1c.3-.6 1.2-1.7 3-1.7 3.2 0 3.8 2.1 3.8 4.8V20h-2.4v-4.9c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H7.8V10Z" fill="currentColor"/></svg>
-            </a>
-            <a href="https://alineyuritm.medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><mask id="medium-cutout"><rect width="24" height="24" fill="#fff"/><text x="4.2" y="16.2" fill="#000" font-family="Georgia, serif" font-size="9.5" font-weight="700">Me</text></mask><rect x="2" y="2" width="20" height="20" rx="4" fill="#fff" mask="url(#medium-cutout)"/></svg>
-            </a>
-            <a href="https://github.com/territorio-lab" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.4-1.1.7-1.3-2.3-.3-4.7-1.1-4.7-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.7 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" fill="currentColor"/></svg>
-            </a>
-            <a href="https://www.behance.net/alineyuri" target="_blank" rel="noopener noreferrer" aria-label="Behance">
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h6.2c2.8 0 4.4 1.4 4.4 3.5 0 1.3-.7 2.3-1.8 2.8 1.5.5 2.4 1.6 2.4 3.3 0 2.4-1.8 4-4.9 4H3V5Zm3 2.4v2.8h2.7c1.2 0 1.8-.5 1.8-1.4s-.6-1.4-1.8-1.4H6Zm0 5.1v3.5h3c1.4 0 2.1-.6 2.1-1.8s-.7-1.7-2.1-1.7H6Zm9.2 2.1h5.8c-.2 1.6-1.5 2.5-3.5 2.5-2.7 0-4.5-1.7-4.5-4.3s1.8-4.3 4.4-4.3c2.5 0 4 1.7 4 4.4v.5h-5.8c.1 1 .6 1.5 1.9 1.5.8 0 1.3-.2 1.6-.7h2.2c-.4 1.5-1.8 2.4-3.9 2.4-2.7 0-4.3-1.6-4.3-4.3 0-2.6 1.7-4.3 4.3-4.3 2.4 0 3.9 1.5 3.9 4.1v.4h-5.8c0 .1 0 .2.1.3h.1Zm0-1.8h3.4c-.1-.8-.6-1.2-1.6-1.2-1 0-1.6.4-1.8 1.2Z" fill="currentColor"/></svg>
-            </a>
-          </nav>
         </div>
       </div>
     </section>
 
     <section class="projects section-shell section-block" id="projetos">
-      <div class="section-heading">
-        <div><p class="eyebrow">01 / PORTFÓLIO</p><h2>Projetos desenvolvidos</em></h2></div>
-      </div>
-
-      <div class="project-filters" role="group" aria-label="Filtrar projetos por área">
-        <button class="filter-button is-active" type="button" data-filter="todos" aria-pressed="true">Todos <span>04</span></button>
-        <button class="filter-button" type="button" data-filter="espaços públicos" aria-pressed="false">Espaços Públicos</button>
-        <button class="filter-button" type="button" data-filter="fabricação digital" aria-pressed="false">Fabricação Digital</button>
-        <button class="filter-button" type="button" data-filter="inovação e tecnologia" aria-pressed="false">Inovação e Tecnologia</button>
-        <button class="filter-button" type="button" data-filter="dados urbanos" aria-pressed="false">Dados Urbanos</button>
-      </div>
+      <h2 class="section-title">PROJETOS</h2>
 
       <div class="project-grid" id="project-grid">
         <article class="project-card" data-category="espaços públicos">
           <a class="project-link" href="projetos/espacos-publicos.html" aria-label="Saiba mais sobre espaços públicos">
-            <div class="project-art project-image"><img src="imagens/render-jadim-paulistano-1.png" alt="Render do projeto de espaços públicos no Jardim Paulistano"></div>
+            <div class="project-art project-image"><img src="imagens/foto1-jp.png" alt="Foto principal do projeto de espaços públicos no Jardim Paulistano"></div>
             <div class="project-meta"><span>ESPAÇOS PÚBLICOS</span><span>2025 ↗</span></div>
            </a>
         </article>
@@ -98,42 +88,45 @@
            </a>
         </article>
       </div>
-      </section>
-
-    <section class="lab-section section-block" id="laboratorio">
-      <div class="section-shell lab-layout">
-        <div><p class="eyebrow">02 / MÉTODO</p><h2>Estudos</h2></div>
-        <div class="lab-content"><p class="lab-lead">Um laboratório é também um jeito de trabalhar: formular perguntas, testar hipóteses, documentar resultados e compartilhar aprendizados.</p>
-          <div class="method-list">
-            <a href="laboratorio/investigacao.html"><span>01</span><h3>Investigar</h3><p>Mapear contexto, necessidades, materiais e restrições. <b>Explorar ↗</b></p></a>
-            <a href="laboratorio/modelagem.html"><span>02</span><h3>Modelar</h3><p>Desenvolver geometrias, sistemas e protótipos digitais. <b>Explorar ↗</b></p></a>
-            <a href="laboratorio/fabricacao.html"><span>03</span><h3>Fabricar</h3><p>Preparar arquivos e testar processos de produção. <b>Explorar ↗</b></p></a>
-            <a href="laboratorio/documentacao-aberta.html"><span>04</span><h3>Compartilhar</h3><p>Registrar decisões, aprendizados e arquivos reutilizáveis. <b>Explorar ↗</b></p></a>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="about section-shell section-block" id="sobre">
-      <div class="about-index"><span class="eyebrow">03 / SOBRE MIM</span><figure class="about-photo"><img src="imagens/foto-perfil.jpeg" alt="Foto de perfil do Território Lab"></figure></div>
-      <div class="about-copy"><h2>Sobre o Território Lab, sobre mim</h2>
-        <p>Olá, meu nome é <strong>Aline Yuri Tsushima</strong>. Sou arquiteta urbanista formada pelo Centro Universitário SENAC.</p>
+      <div class="about-index"><figure class="about-photo"><img src="imagens/foto-perfil.jpeg" alt="Foto de perfil do Território Lab"></figure></div>
+      <div class="about-copy">
+        <h2>ALINE YURI TSUSHIMA</h2>
+        <p class="about-role">Arquiteta urbanista formada pelo Centro Universitário SENAC</p>
         <p>Atuei como assessora técnica na equipe da rede <a href="https://www.fablablivresp.prefeitura.sp.gov.br/" target="_blank" rel="noopener noreferrer"><u>Fab Lab Livre SP</u></a>, rede pública de laboratórios de fabricação digital da cidade de São Paulo, responsável pelos projetos de arquitetura e gestão da política pública.</p>
         <p>Na <a href="https://zeromaquina.com.br/" target="_blank" rel="noopener noreferrer"><u>Zero Máquina</u></a> desenvolvi modelos 3D para fabricação digital (CAM) como planificação de peças, nesting e geração de toolpaths para CNC.</p>
         <p>Criei o Território Lab como plataforma para investigar processos de projeto e fabricação onde reúno arquitetura, design de produto, cartografia e ferramentas digitais dentro do método de experimentação.</p>
-      </section>
+      </div>
+    </section>
 
     <section class="contact-section" id="contato">
-      <div class="section-shell contact-layout"><div><p class="eyebrow">04 / CONTATO</p><h2>Bora <em>criar</em><br>algo juntos?</h2>
-      </div>
-      <div class="contact-copy"><p>Para projetos, colaborações ou experimentos pessoais entre em contato por e-mail <strong>alineyuritm@gmail.com</strong></p> 
-        <p>ou</p>
-        <a class="contact-link" href="https://wa.me/qr/VM5VWD7AJVGPO1"> Whatsapp<span aria-hidden="true">↗</span></a>
-      </div>
+      <div class="section-shell contact-layout">
+        <h2>CONTATO</h2>
+        <p>Para projetos, colaborações ou experimentos pessoais entre em contato por e-mail <strong>alineyuritm@gmail.com</strong> ou <a class="contact-link" href="https://wa.me/qr/VM5VWD7AJVGPO1"><u>Whatsapp</u></a></p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer section-shell"><a class="footer-brand" href="#inicio">TERRITÓRIO LAB<span>.</span></a><span>SÃO PAULO, BR</span><a href="#inicio">VOLTAR AO TOPO ↑</a><span>© <span id="current-year">2026</span></span></footer>
+  <footer class="site-footer">
+    <nav class="social-links footer-social" aria-label="Redes sociais">
+      <a href="https://www.instagram.com/territoriolab.io/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/alineyuritm/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8.5A1.5 1.5 0 1 0 5 5.5a1.5 1.5 0 0 0 0 3ZM3.8 10h2.4v10H3.8V10Zm4 0h2.3v1.4h.1c.3-.6 1.2-1.7 3-1.7 3.2 0 3.8 2.1 3.8 4.8V20h-2.4v-4.9c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H7.8V10Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://alineyuritm.medium.com/" target="_blank" rel="noopener noreferrer" aria-label="Medium">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><mask id="medium-cutout-footer"><rect width="24" height="24" fill="#fff"/><text x="4.2" y="16.2" fill="#000" font-family="Georgia, serif" font-size="9.5" font-weight="700">Me</text></mask><rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor" mask="url(#medium-cutout-footer)"/></svg>
+      </a>
+      <a href="https://github.com/territorio-lab" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.4-1.1.7-1.3-2.3-.3-4.7-1.1-4.7-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.7 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.behance.net/alineyuri" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h6.2c2.8 0 4.4 1.4 4.4 3.5 0 1.3-.7 2.3-1.8 2.8 1.5.5 2.4 1.6 2.4 3.3 0 2.4-1.8 4-4.9 4H3V5Zm3 2.4v2.8h2.7c1.2 0 1.8-.5 1.8-1.4s-.6-1.4-1.8-1.4H6Zm0 5.1v3.5h3c1.4 0 2.1-.6 2.1-1.8s-.7-1.7-2.1-1.7H6Zm9.2 2.1h5.8c-.2 1.6-1.5 2.5-3.5 2.5-2.7 0-4.5-1.7-4.5-4.3s1.8-4.3 4.4-4.3c2.5 0 4 1.7 4 4.4v.5h-5.8c.1 1 .6 1.5 1.9 1.5.8 0 1.3-.2 1.6-.7h2.2c-.4 1.5-1.8 2.4-3.9 2.4-2.7 0-4.3-1.6-4.3-4.3 0-2.6 1.7-4.3 4.3-4.3 2.4 0 3.9 1.5 3.9 4.1v.4h-5.8c0 .1 0 .2.1.3h.1Zm0-1.8h3.4c-.1-.8-.6-1.2-1.6-1.2-1 0-1.6.4-1.8 1.2Z" fill="currentColor"/></svg>
+      </a>
+    </nav>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,138 @@
+## Memory
+
+Your memory is OptMem:
+- The tool is `~/.optmem/memo`
+- Your memories are in `~/.optmem/memory`
+
+OptMem outlives every session, compaction, model and vendor change.
+Without it you do not know who you are, or what was decided and tried.
+
+### At startup: activating OptMem (mandatory)
+
+Run `~/.optmem/memo wake` before any other tool call, in every session, and
+then do exactly what it prints, to the end of its output.
+
+### While working: register memories (mandatory)
+
+Call `~/.optmem/memo note "<1 line, max 280 bytes>"` whenever you learn
+something new, or something worth keeping happens. That covers a task worth
+real effort, a fact or insight the user teaches you, anything you learn about
+their life (even indirectly), any event of lasting effect.
+
+Do not register redundant memories.
+
+If `~/.optmem/memo note` asks a compression: do it before your next action.
+
+Never edit or delete anything under `~/.optmem/memory`: the tool manages it.
+
+### When you need an old memory: search, or navigate
+
+`~/.optmem/memo recall <regex>` searches every memory, word for word.
+
+Your memories also form a binary tree: `#0-1`, `#2-3` ... exist as one-line
+summaries, pairs of those as `#0-3`, and so on -- every `#a-b` line wake prints
+is one node of it. `~/.optmem/memo zoom <a-b>` opens a node into its two
+halves, down to the raw memories.
+
+### If you're a subagent: skip everything above
+
+Parallel sessions on this machine are all you, and may all write memories.
+A subagent is not: it must never run `memo`, because it cannot judge what is
+already known, and its notes would arrive duplicated and incorrectly. When you
+spawn one, write: `You are a subagent. Don't run memo.`
+
+## Projeto: Território Lab
+
+### Visão geral
+
+- Site estático de portfólio e laboratório de estudo/fabricação digital.
+- A página inicial é `index.html`; o estilo compartilhado fica em `style.css` e
+  o comportamento em `script.js`.
+- `projetos/` contém páginas individuais de projetos e `laboratorio/` contém
+  páginas sobre processo, método, fabricação e investigação.
+- As imagens ficam em `imagens/`. Preserve os nomes e caminhos relativos ao
+  mover ou publicar os arquivos.
+- A identidade visual usa fundo claro, tipografia editorial/monoespaçada,
+  verde-lima como cor de destaque, cartões de projeto e navegação responsiva.
+  A referência visual atual é o mappinglab.me: cabeçalho branco simples e
+  rodapé preto só com ícones sociais.
+- Cabeçalho e rodapé são iguais em todas as páginas: menu "projetos / sobre /
+  contato" + ícones sociais (`.header-social`, ocultos até 760px) e rodapé com
+  `.footer-social`. Ao mudar um, replique nas páginas de `projetos/` e
+  `laboratorio/`. Cada SVG do Medium usa um `id` de máscara próprio
+  (`medium-cutout-header` / `medium-cutout-footer`).
+- As páginas de `laboratorio/` não têm mais seção na home; ficam acessíveis
+  entre si pelos links "anterior/próximo".
+
+### Comportamentos e layout importantes
+
+- A grade principal de projetos (`.project-grid`) usa duas colunas em telas
+  maiores e uma coluna até 430px.
+- A home não exibe mais filtros de projetos, mas os cards mantêm
+  `data-category`. Os filtros (projetos e galerias) usam a função `setupFilter`
+  em `script.js`, com `data-filter`/`data-gallery-filter` e o estado
+  `aria-pressed`; preserve esses atributos e a acessibilidade. O número no
+  `<span>` de cada botão é calculado pelo script.
+- As galerias das páginas de projeto usam `.gallery-row` com imagens flexíveis e
+  variáveis de proporção (`.gallery-ratio-133`, `.gallery-ratio-167`,
+  `.gallery-ratio-178`, `.gallery-ratio-243`, `.gallery-ratio-405`). Cada linha
+  calcula uma altura comum a partir da soma das proporções, como no mosaico do
+  Medium; até 760px, cada linha vira uma coluna.
+- O filtro das galerias usa `data-gallery-filter` e `data-gallery-category`;
+  linhas que ficam sem imagens visíveis recebem `hidden`. Evite juntar o
+  panorama (`.gallery-ratio-405`) com outras imagens na mesma linha, pois a
+  linha fica baixa demais.
+- Imagens com `.lightbox-trigger` abrem no lightbox implementado em
+  `script.js`; preserve teclado, foco, `Escape` e texto alternativo.
+- O menu recolhível é ativado em telas pequenas.
+
+### Fluxo de trabalho
+
+- Abra `index.html` localmente para uma verificação rápida.
+- Antes de publicar, substitua textos, imagens, links e o e-mail provisórios
+  pelos dados reais dos projetos.
+- Evite introduzir dependências ou um framework sem necessidade: o projeto é
+  deliberadamente HTML, CSS e JavaScript estáticos.
+
+## Changelog
+
+### 2026-11-14 — Documentação inicial do projeto
+
+- Registradas a estrutura de pastas e a identidade visual do Território Lab.
+- Documentadas a grade de projetos, a grade/mosaico responsivo das galerias,
+  os filtros e o lightbox.
+- Registrado o fluxo atual de teste local e a natureza provisória de parte do
+  conteúdo.
+
+### 2026-11-14 — Proporção das galerias
+
+- Corrigidas as proporções das imagens da galeria de Espaços Públicos conforme
+  as dimensões reais dos arquivos.
+- Ajustado o CSS para manter altura uniforme por linha, com `object-fit: cover`
+  e fallback responsivo em coluna no mobile.
+
+### 2026-11-17 — Home simplificada (referência: mappinglab.me)
+
+- A home passou a usar `body.home`; os estilos novos ficam em um bloco no fim
+  de `style.css`, escopados a essa classe para não afetar as páginas internas.
+- Cabeçalho branco com menu só "projetos / sobre / contato" e ícones sociais
+  pequenos em preto (ocultos no mobile); rodapé preto só com os ícones.
+- Hero com imagem de fundo, título centralizado e tags centralizadas abaixo.
+- Removidos da home: eyebrows numeradas, filtros de projetos e a seção
+  "Método/Estudos" (as páginas em `laboratorio/` continuam existindo).
+- Cartões de projeto com cantos arredondados e legenda maior em preto.
+
+### 2026-11-17 — Correções do code review
+
+- Cabeçalho e rodapé das páginas internas igualados aos da home; removidos os
+  links para `#laboratorio`, que não existe mais (o breadcrumb virou texto).
+- `style.css`: o bloco antigo de hero/cabeçalho absoluto e o bloco
+  `body:has(.detail-hero)` que o desfazia foram substituídos por um bloco
+  único no fim do arquivo (cabeçalho/rodapé globais e hero da home).
+- Galeria de Espaços Públicos: panorama em linha própria; o filtro esconde
+  linhas vazias e os contadores são calculados. Removido o ano automático
+  do rodapé.
+
+Atualize esta seção quando uma mudança alterar layout, interação, estrutura de
+arquivos ou fluxo de publicação. Registre o que mudou e por quê, sem transformar
+o `AGENTS.md` em um histórico de cada pequena edição de texto.

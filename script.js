@@ -1,28 +1,53 @@
-// Atualiza automaticamente o ano exibido no rodapé.
-const yearElement = document.querySelector('#current-year');
-if (yearElement) {
-  yearElement.textContent = new Date().getFullYear();
-}
+// Filtro genérico: botões com data-<filtro> mostram só os itens da categoria
+// escolhida ("todos" mostra tudo) e mantêm aria-pressed atualizado.
+// O número dentro do <span> de cada botão é calculado a partir dos itens.
+const setupFilter = ({ buttonAttr, filterKey, items, categoryKey, onChange }) => {
+  const buttons = document.querySelectorAll(`[${buttonAttr}]`);
+  if (!buttons.length || !items.length) return;
 
-// Filtro de projetos: mostra apenas os cards da categoria selecionada.
-const filterButtons = document.querySelectorAll('[data-filter]');
-const projectCards = document.querySelectorAll('.project-card[data-category]');
+  buttons.forEach((button) => {
+    const filter = button.dataset[filterKey];
+    const count = filter === 'todos'
+      ? items.length
+      : [...items].filter((item) => item.dataset[categoryKey] === filter).length;
+    const badge = button.querySelector('span');
+    if (badge) badge.textContent = String(count).padStart(2, '0');
 
-filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const selectedFilter = button.dataset.filter;
+    button.addEventListener('click', () => {
+      buttons.forEach((item) => {
+        const isSelected = item === button;
+        item.classList.toggle('is-active', isSelected);
+        item.setAttribute('aria-pressed', String(isSelected));
+      });
 
-    filterButtons.forEach((item) => {
-      const isSelected = item === button;
-      item.classList.toggle('is-active', isSelected);
-      item.setAttribute('aria-pressed', String(isSelected));
-    });
+      items.forEach((item) => {
+        item.hidden = !(filter === 'todos' || item.dataset[categoryKey] === filter);
+      });
 
-    projectCards.forEach((card) => {
-      const shouldShow = selectedFilter === 'todos' || card.dataset.category === selectedFilter;
-      card.hidden = !shouldShow;
+      if (onChange) onChange();
     });
   });
+};
+
+// Filtro de projetos (cards com data-category).
+setupFilter({
+  buttonAttr: 'data-filter',
+  filterKey: 'filter',
+  items: document.querySelectorAll('.project-card[data-category]'),
+  categoryKey: 'category',
+});
+
+// Filtro da galeria; linhas que ficam sem imagens visíveis também somem.
+setupFilter({
+  buttonAttr: 'data-gallery-filter',
+  filterKey: 'galleryFilter',
+  items: document.querySelectorAll('.gallery-image[data-gallery-category]'),
+  categoryKey: 'galleryCategory',
+  onChange: () => {
+    document.querySelectorAll('.gallery-row').forEach((row) => {
+      row.hidden = !row.querySelector('.gallery-image:not([hidden])');
+    });
+  },
 });
 
 // Menu recolhível para telas pequenas.

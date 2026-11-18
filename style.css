@@ -344,6 +344,9 @@ button {
   gap:.5rem;
   margin-bottom:2rem
 }
+.gallery-filters {
+  margin-bottom:0
+}
 .filter-button {
   border:1px solid var(--line);
   background:transparent;
@@ -606,43 +609,6 @@ button {
   border:1px solid var(--line);
   padding:.6rem .7rem
 }
-.social-links {
-  position:absolute;
-  top:100px;
-  right:var(--gutter);
-  z-index:12;
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  margin:0;
-}
-.social-links a {
-  display:grid;
-  width:40px;
-  height:40px;
-  flex:0 0 40px;
-  place-items:center;
-  color:#fff;
-  transition:opacity .2s ease, transform .2s ease;
-}
-.social-links a:hover {
-  opacity:.65;
-  transform:translateY(-2px);
-}
-.social-links svg {
-  display:block;
-  width:40px!important;
-  height:40px!important;
-  max-width:40px;
-  max-height:40px;
-}
-@media(max-width:760px){
-  .social-links {
-    top:74px;
-    right:var(--gutter);
-    gap:.5rem;
-  }
-}
 .contact-section {
   background:var(--lime);
   padding-block:clamp(4rem,8vw,8rem)
@@ -858,17 +824,6 @@ button {
   .contact-layout h2 {
     font-size:clamp(4rem,14vw,6rem)
   }
-  .site-footer {
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    line-height:1.7
-  }
-  .site-footer span:nth-child(2) {
-    text-align:right
-  }
-  .site-footer>a:last-of-type {
-    text-align:left
-  }
 }
 
 @media(max-width:430px) {
@@ -963,6 +918,9 @@ button {
   font-family:Georgia,serif;
   font-weight:400
 }
+.detail-heading:has(+ .gallery-with-filters) {
+  padding-bottom:1.25rem
+}
 .detail-summary {
   font-size:clamp(1rem,1.5vw,1.25rem);
   line-height:1.7;
@@ -1056,6 +1014,10 @@ button {
   gap:1rem;
   margin:clamp(2rem,5vw,5rem) 0 clamp(4rem,8vw,8rem)
 }
+.gallery-with-filters {
+  gap:1rem;
+  margin-top:0
+}
 .gallery-row {
   display:flex;
   align-items:flex-start;
@@ -1067,7 +1029,7 @@ button {
   aspect-ratio:var(--image-ratio,1);
   min-width:0;
   margin:0;
-  overflow:visible;
+  overflow:hidden;
   cursor:zoom-in
 }
 .gallery-ratio-133 {
@@ -1076,17 +1038,20 @@ button {
 .gallery-ratio-167 {
   --image-ratio:1.67;
 }
-.gallery-ratio-180 {
-  --image-ratio:1.80;
+.gallery-ratio-178 {
+  --image-ratio:1.778;
 }
 .gallery-ratio-243 {
   --image-ratio:2.43;
+}
+.gallery-ratio-405 {
+  --image-ratio:4.055;
 }
 .gallery-image img {
   display:block;
   width:100%;
   height:100%;
-  object-fit:contain
+  object-fit:cover
 }
 .lightbox {
   position:fixed;
@@ -1260,10 +1225,10 @@ body.has-lightbox {
   .gallery-image {
     width:100%;
     flex:none;
-    aspect-ratio:auto;
+    aspect-ratio:var(--image-ratio,1);
   }
   .gallery-image img {
-    height:auto;
+    height:100%;
   }
   .detail-cta {
     align-items:flex-start;
@@ -1277,88 +1242,206 @@ body.has-lightbox {
     grid-column:2
   }
 }
+
+/* ===== Cabeçalho e rodapé (todas as páginas) — visual inspirado no mappinglab.me ===== */
 .site-header {
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  color:#fff;
-  border-bottom-color:rgba(255,255,255,.25)
+  background:#fff;
+  color:#000;
+  gap:1.5rem;
 }
 .brand-mark {
+  /* flex mantém "T·L" numa linha (com grid cada letra virava uma linha) */
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border-color:currentColor
 }
+.site-nav {
+  margin-left:auto
+}
+.site-nav>a {
+  font-family:var(--sans);
+  font-size:.9rem;
+  font-weight:600;
+  letter-spacing:.02em;
+  text-transform:uppercase
+}
+.site-nav>a:hover {
+  opacity:.6
+}
+.social-links {
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  margin:0
+}
+.social-links a {
+  display:grid;
+  place-items:center;
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
+  color:#000;
+  transition:opacity .2s ease
+}
+.social-links a:hover {
+  opacity:.6
+}
+.social-links svg {
+  display:block;
+  width:18px;
+  height:18px
+}
+.site-footer {
+  display:flex;
+  justify-content:center;
+  background:#000;
+  color:#fff;
+  padding:2rem var(--gutter)
+}
+.site-footer .social-links {
+  gap:.9rem
+}
+.site-footer .social-links a {
+  color:#fff;
+  width:32px;
+  height:32px;
+  flex-basis:32px
+}
+.site-footer .social-links svg {
+  width:22px;
+  height:22px
+}
+@media(max-width:760px) {
+  /* No celular os ícones ficam só no rodapé */
+  .header-social {
+    display:none
+  }
+  .site-nav {
+    margin-left:0;
+    background:#fff
+  }
+}
+
+/* Galeria: o filtro esconde imagens e também as linhas que ficam vazias */
+.gallery-row[hidden],
+.gallery-image[hidden] {
+  display:none
+}
+
+/* ===== Página inicial ===== */
 .hero {
   width:100%;
   max-width:none;
   margin:0;
-  padding:calc(90px + 1.25rem) 0 1.25rem;
-  min-height:100vh;
-  min-height:100svh;
+  padding:0;
+  min-height:calc(100vh - 90px);
+  min-height:calc(100svh - 90px);
   display:flex;
   flex-direction:column;
-  justify-content:space-between;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
   color:#fff;
-  background-image:linear-gradient(90deg,rgba(20,22,18,.78) 0%,rgba(20,22,18,.56) 42%,rgba(20,22,18,.12) 100%),url("imagens/mapa-1.jpg");
-  background-size:cover;
-  background-position:center
-}
-.hero-topline,.hero-bottomline {
-  padding-inline:var(--gutter);
-  color:rgba(255,255,255,.78)
+  background:linear-gradient(rgba(20,22,18,.55),rgba(20,22,18,.55)),url("imagens/mapa-1.jpg") center/cover
 }
 .hero-grid {
-  grid-template-columns:minmax(0,1fr);
-  flex:1;
-  align-items:center;
-  padding:clamp(4rem,8vw,8rem) var(--gutter)
-}
-.hero h1 {
-  font-size:clamp(2.5rem,5vw,5rem)
+  display:block;
+  padding:3rem var(--gutter)
 }
 .hero-copy {
-  max-width:760px
+  max-width:980px;
+  margin-inline:auto;
+  padding:0
 }
-.hero-copy .eyebrow {
-  color:rgba(255,255,255,.78)
+.hero h1 {
+  font-size:clamp(2.2rem,5.5vw,4.6rem);
+  font-weight:800;
+  letter-spacing:-.03em;
+  line-height:1.08
 }
-.hero-bottomline {
-  border-top-color:rgba(255,255,255,.35)
+.hero-description {
+  max-width:760px;
+  margin:1.6rem auto 2rem;
+  font-size:clamp(.8rem,1.2vw,1rem);
+  font-weight:700;
+  letter-spacing:.06em;
+  line-height:1.7;
+  text-transform:uppercase
+}
+.hero .about-tags {
+  justify-content:center;
+  margin-top:0
+}
+.hero .about-tags span {
+  border-color:rgba(255,255,255,.55);
+  color:#fff
+}
+.section-title {
+  text-align:center;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:800;
+  letter-spacing:.04em;
+  margin:0 0 clamp(2rem,4vw,3.5rem)
+}
+body.home .project-art {
+  border-radius:10px
+}
+body.home .project-meta {
+  font-family:var(--sans);
+  font-size:1.1rem;
+  font-weight:600;
+  letter-spacing:.02em;
+  color:#000
+}
+body.home .about-copy h2 {
+  font-size:clamp(1.8rem,3.4vw,2.8rem);
+  font-weight:800;
+  letter-spacing:.02em;
+  line-height:1.1;
+  margin:0 0 .6rem
+}
+body.home .about-copy .about-role {
+  font-size:1rem;
+  font-weight:600;
+  color:#000;
+  margin:0 0 1.6rem
+}
+body.home .about-copy p {
+  font-size:.9rem;
+  line-height:1.7
+}
+body.home .contact-layout {
+  display:block;
+  text-align:center
+}
+body.home .contact-layout h2 {
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:800;
+  letter-spacing:.04em;
+  margin:0 0 1.2rem
+}
+body.home .contact-layout p {
+  max-width:640px;
+  margin:0 auto;
+  font-size:1rem;
+  line-height:1.7
+}
+body.home .contact-link {
+  display:inline;
+  border:0;
+  padding:0;
+  margin:0;
+  font-weight:700
 }
 @media(max-width:760px) {
-  .site-header {
-    height:74px
-  }
-  .menu-toggle-lines,.menu-toggle-lines:before,.menu-toggle-lines:after {
-    background:#fff
-  }
-  .site-nav {
-    color:var(--ink)
-  }
   .hero {
-    margin-top:-74px;
-    padding-top:calc(74px + 1.25rem);
-    background-image:linear-gradient(0deg,rgba(20,22,18,.78) 0%,rgba(20,22,18,.45) 70%,rgba(20,22,18,.25) 100%),url("imagens/mapa-1.jpg")
+    min-height:calc(100svh - 74px)
   }
-  .hero-grid {
-    padding-block:3.5rem
+  .hero h1 {
+    font-size:clamp(2rem,9vw,3rem)
   }
-}
-
-/* Páginas internas: o cabeçalho ocupa seu próprio espaço antes do breadcrumb. */
-body:has(.detail-hero) .site-header {
-  position:relative;
-  top:auto;
-  left:auto;
-  right:auto;
-  color:var(--ink);
-  border-bottom-color:var(--line);
-}
-body:has(.detail-hero) .menu-toggle-lines,
-body:has(.detail-hero) .menu-toggle-lines:before,
-body:has(.detail-hero) .menu-toggle-lines:after {
-  background:var(--ink);
-}
-body:has(.detail-hero) .menu-toggle[aria-expanded=true] .menu-toggle-lines {
-  background:transparent;
+  body.home .project-meta {
+    font-size:.95rem
+  }
 }
