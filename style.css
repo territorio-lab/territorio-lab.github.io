@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap');
 :root {
   --ink:#20221c;
   --paper:#f2f1e9;
@@ -8,6 +8,7 @@
   --line:rgba(32,34,28,.2);
   --mono:'DM Mono',monospace;
   --sans:'Manrope',Arial,sans-serif;
+  --inter:'Inter',Arial,sans-serif;
   --gutter:clamp(1.2rem,5vw,5.5rem);
 }
 * {
@@ -1329,14 +1330,19 @@ body.has-lightbox {
   display:none
 }
 
-/* ===== Página inicial ===== */
+/* ===== Página inicial — tipografia e espaçamentos do mappinglab.me =====
+   Referência: textos em Inter; títulos de seção em Inter 900 maiúsculo,
+   ~36px, com 4rem de respiro; conteúdo em coluna de até 1024px. */
+body.home {
+  font-family:var(--inter)
+}
 .hero {
   width:100%;
   max-width:none;
   margin:0;
   padding:0;
-  min-height:calc(100vh - 90px);
-  min-height:calc(100svh - 90px);
+  min-height:50vh;
+  min-height:50svh;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -1355,18 +1361,24 @@ body.has-lightbox {
   padding:0
 }
 .hero h1 {
-  font-size:clamp(2.2rem,5.5vw,4.6rem);
+  font-size:clamp(2.2rem,5vw,4rem);
   font-weight:800;
   letter-spacing:-.03em;
   line-height:1.08
 }
+body.home .hero h1 {
+  font-family:var(--inter);
+  font-weight:900;
+  letter-spacing:-.02em
+}
 .hero-description {
   max-width:760px;
-  margin:1.6rem auto 2rem;
-  font-size:clamp(.8rem,1.2vw,1rem);
+  margin:1.4rem auto 1.8rem;
+  font-family:var(--inter);
+  font-size:clamp(1rem,1.6vw,1.35rem);
   font-weight:700;
-  letter-spacing:.06em;
-  line-height:1.7;
+  letter-spacing:0;
+  line-height:1.4;
   text-transform:uppercase
 }
 .hero .about-tags {
@@ -1374,58 +1386,102 @@ body.has-lightbox {
   margin-top:0
 }
 .hero .about-tags span {
-  border-color:rgba(255,255,255,.55);
-  color:#fff
+  font-family:var(--inter);
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  color:#fff;
+  background:rgba(0,0,0,.35);
+  border-color:rgba(255,255,255,.75);
+  padding:.55rem .75rem
 }
-.section-title {
+
+/* Títulos de seção (PROJETOS, CONTATO) */
+.section-title,
+body.home .contact-layout h2 {
   text-align:center;
-  font-size:clamp(1.6rem,3vw,2.4rem);
-  font-weight:800;
-  letter-spacing:.04em;
-  margin:0 0 clamp(2rem,4vw,3.5rem)
+  font-family:var(--inter);
+  font-size:2.25rem;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.1;
+  text-transform:uppercase;
+  margin:0;
+  padding-block:3rem
+}
+
+/* Projetos */
+body.home .projects {
+  padding-block:0 3rem
 }
 body.home .project-art {
-  border-radius:10px
+  border-radius:6px
 }
 body.home .project-meta {
-  font-family:var(--sans);
-  font-size:1.1rem;
-  font-weight:600;
-  letter-spacing:.02em;
-  color:#000
+  font-family:var(--inter);
+  font-size:1.05rem;
+  font-weight:700;
+  letter-spacing:0;
+  color:#000;
+  margin-top:1rem
+}
+
+/* Sobre: coluna central de até 1024px, foto em 1/3 e texto em 2/3 */
+body.home .about {
+  max-width:calc(1024px + 2 * var(--gutter));
+  grid-template-columns:1fr 2fr;
+  gap:2.5rem;
+  align-items:start;
+  padding-block:3rem
+}
+body.home .about-index {
+  align-items:center;
+  justify-content:flex-start
+}
+body.home .about-photo {
+  width:100%;
+  max-width:280px;
+  margin:0
 }
 body.home .about-copy h2 {
-  font-size:clamp(1.8rem,3.4vw,2.8rem);
-  font-weight:800;
-  letter-spacing:.02em;
-  line-height:1.1;
-  margin:0 0 .6rem
+  font-family:var(--inter);
+  font-size:1.6rem;
+  font-weight:900;
+  letter-spacing:0;
+  line-height:1.15;
+  margin:0 0 .5rem
 }
 body.home .about-copy .about-role {
-  font-size:1rem;
-  font-weight:600;
+  font-size:1.05rem;
+  font-weight:500;
   color:#000;
-  margin:0 0 1.6rem
+  margin:0 0 1.5rem
 }
 body.home .about-copy p {
-  font-size:.9rem;
-  line-height:1.7
+  font-size:1rem;
+  line-height:1.65;
+  color:#333;
+  max-width:none
+}
+
+/* Contato: mesmo fundo do site */
+body.home .contact-section {
+  background:transparent;
+  padding-block:0 3.5rem
 }
 body.home .contact-layout {
   display:block;
   text-align:center
 }
 body.home .contact-layout h2 {
-  font-size:clamp(1.6rem,3vw,2.4rem);
-  font-weight:800;
-  letter-spacing:.04em;
-  margin:0 0 1.2rem
+  padding-top:2rem;
+  padding-bottom:1.25rem
 }
 body.home .contact-layout p {
   max-width:640px;
   margin:0 auto;
   font-size:1rem;
-  line-height:1.7
+  line-height:1.65
 }
 body.home .contact-link {
   display:inline;
@@ -1435,13 +1491,27 @@ body.home .contact-link {
   font-weight:700
 }
 @media(max-width:760px) {
-  .hero {
-    min-height:calc(100svh - 74px)
-  }
   .hero h1 {
     font-size:clamp(2rem,9vw,3rem)
   }
+  .section-title,
+  body.home .contact-layout h2 {
+    font-size:1.9rem;
+    padding-block:2.25rem
+  }
   body.home .project-meta {
     font-size:.95rem
+  }
+  body.home .about {
+    grid-template-columns:1fr;
+    gap:1.5rem;
+    padding-block:2rem
+  }
+  body.home .about-photo {
+    width:min(68vw,240px)
+  }
+  body.home .about-copy h2,
+  body.home .about-copy .about-role {
+    text-align:center
   }
 }

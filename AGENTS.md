@@ -55,7 +55,8 @@ spawn one, write: `You are a subagent. Don't run memo.`
 - A identidade visual usa fundo claro, tipografia editorial/monoespaçada,
   verde-lima como cor de destaque, cartões de projeto e navegação responsiva.
   A referência visual atual é o mappinglab.me: cabeçalho branco simples e
-  rodapé preto só com ícones sociais.
+  rodapé preto só com ícones sociais. A home usa a fonte Inter (como a
+  referência); títulos de seção em Inter 900 maiúsculo (`.section-title`).
 - Cabeçalho e rodapé são iguais em todas as páginas: menu "projetos / sobre /
   contato" + ícones sociais (`.header-social`, ocultos até 760px) e rodapé com
   `.footer-social`. Ao mudar um, replique nas páginas de `projetos/` e
@@ -132,6 +133,14 @@ spawn one, write: `You are a subagent. Don't run memo.`
 - Galeria de Espaços Públicos: panorama em linha própria; o filtro esconde
   linhas vazias e os contadores são calculados. Removido o ano automático
   do rodapé.
+
+### 2026-11-17 — Tipografia e espaçamentos da home
+
+- Home passa a usar Inter (fonte do mappinglab.me, via Google Fonts).
+- Hero com 50% da altura da tela; tags em negrito com fundo escuro.
+- Espaçamentos verticais de Projetos, Sobre e Contato reduzidos; Sobre em
+  coluna de até 1024px (foto em 1/3, texto em 2/3); Contato sem fundo
+  verde-lima.
 
 Atualize esta seção quando uma mudança alterar layout, interação, estrutura de
 arquivos ou fluxo de publicação. Registre o que mudou e por quê, sem transformar
