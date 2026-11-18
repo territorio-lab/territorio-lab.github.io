@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap');
 :root {
   --ink:#20221c;
-  --paper:#f2f1e9;
+  --paper:#fff;
   --paper-deep:#e6e5da;
   --lime:#d1f36a;
   --muted:#77796f;
@@ -1048,6 +1048,25 @@ button {
 .gallery-ratio-405 {
   --image-ratio:4.055;
 }
+/* Galeria em tamanho original (como no Medium): uma imagem por linha,
+   centralizada, sem ampliar além do tamanho do arquivo e sem cortes. */
+.gallery-natural {
+  align-items:center;
+  gap:2rem
+}
+.gallery-natural .gallery-image {
+  flex:none;
+  width:auto;
+  max-width:100%;
+  aspect-ratio:auto;
+  overflow:visible
+}
+.gallery-natural .gallery-image img {
+  width:auto;
+  max-width:100%;
+  height:auto;
+  object-fit:contain
+}
 .gallery-image img {
   display:block;
   width:100%;
@@ -1514,4 +1533,101 @@ body.home .contact-link {
   body.home .about-copy .about-role {
     text-align:center
   }
+}
+
+/* ===== Página de projeto (body.project-page) — referência: mappinglab.me/venezia-2018 =====
+   Título em Inter 500 maiúsculo, texto logo abaixo, galeria e, no fim,
+   só as informações (rótulo pequeno em maiúsculas + valor em texto simples). */
+body.project-page {
+  font-family:var(--inter)
+}
+.project-intro {
+  max-width:none;
+  padding:2rem 0 2.25rem
+}
+.project-intro h1 {
+  font-family:var(--inter);
+  font-size:clamp(1.6rem,3.2vw,2.25rem);
+  font-weight:700;
+  letter-spacing:0;
+  line-height:1.2;
+  text-transform:uppercase;
+  margin:0 0 1.25rem
+}
+.project-intro p {
+  font-size:1rem;
+  line-height:1.65;
+  color:#333;
+  margin:0
+}
+.project-page .gallery-filters {
+  margin-bottom:1rem
+}
+.project-page .detail-gallery {
+  margin-top:0;
+  margin-bottom:3rem
+}
+/* Composições provisórias no lugar das fotos (substituir por .gallery-image) */
+.gallery-placeholder {
+  flex:1 1 0;
+  min-width:0
+}
+.gallery-row>.gallery-placeholder:only-child {
+  aspect-ratio:2.7
+}
+@media(max-width:760px) {
+  .gallery-placeholder {
+    flex:none;
+    width:100%
+  }
+}
+.project-info {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1.5rem 2rem;
+  margin:0;
+  padding:2rem 0 4rem;
+  border-top:1px solid var(--line)
+}
+.project-info dt {
+  font-size:.875rem;
+  font-weight:500;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  color:var(--muted)
+}
+.project-info dd {
+  margin:.35rem 0 0;
+  font-size:1rem;
+  line-height:1.5
+}
+@media(max-width:760px) {
+  .project-intro {
+    padding:1.5rem 0 1.75rem
+  }
+  .project-info {
+    grid-template-columns:1fr 1fr;
+    padding-bottom:3rem
+  }
+}
+
+/* Epígrafe na apresentação do projeto */
+.project-epigraph {
+  margin:1.5rem 0 0;
+  padding-left:1.25rem;
+  border-left:2px solid var(--ink)
+}
+.project-epigraph p {
+  font-style:italic;
+  font-size:.95rem;
+  line-height:1.7;
+  color:#444
+}
+.project-epigraph cite {
+  display:block;
+  margin-top:.5rem;
+  font-style:normal;
+  font-size:.875rem;
+  font-weight:500;
+  color:var(--muted)
 }

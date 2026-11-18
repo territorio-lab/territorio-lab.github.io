@@ -52,7 +52,7 @@ spawn one, write: `You are a subagent. Don't run memo.`
   páginas sobre processo, método, fabricação e investigação.
 - As imagens ficam em `imagens/`. Preserve os nomes e caminhos relativos ao
   mover ou publicar os arquivos.
-- A identidade visual usa fundo claro, tipografia editorial/monoespaçada,
+- A identidade visual usa fundo branco (`--paper:#fff`), tipografia editorial/monoespaçada,
   verde-lima como cor de destaque, cartões de projeto e navegação responsiva.
   A referência visual atual é o mappinglab.me: cabeçalho branco simples e
   rodapé preto só com ícones sociais. A home usa a fonte Inter (como a
@@ -76,7 +76,10 @@ spawn one, write: `You are a subagent. Don't run memo.`
   `<span>` de cada botão é calculado pelo script.
 - As galerias das páginas de projeto usam `.gallery-row` com imagens flexíveis e
   variáveis de proporção (`.gallery-ratio-133`, `.gallery-ratio-167`,
-  `.gallery-ratio-178`, `.gallery-ratio-243`, `.gallery-ratio-405`). Cada linha
+  `.gallery-ratio-178`, `.gallery-ratio-243`, `.gallery-ratio-405`). A classe
+  deve corresponder à proporção real do arquivo (largura ÷ altura); se nenhuma
+  servir, crie uma nova em `style.css` e liste aqui. Faixas e panoramas muito
+  largos (acima de ~2,4) ficam sozinhos na linha. Cada linha
   calcula uma altura comum a partir da soma das proporções, como no mosaico do
   Medium; até 760px, cada linha vira uma coluna.
 - O filtro das galerias usa `data-gallery-filter` e `data-gallery-category`;
@@ -141,6 +144,27 @@ spawn one, write: `You are a subagent. Don't run memo.`
 - Espaçamentos verticais de Projetos, Sobre e Contato reduzidos; Sobre em
   coluna de até 1024px (foto em 1/3, texto em 2/3); Contato sem fundo
   verde-lima.
+
+### 2026-11-18 — Página de projeto no estilo mappinglab.me/venezia-2018
+
+- `projetos/espacos-publicos.html` usa `body.project-page`: título em Inter
+  700 (negrito) maiúsculo, texto de apresentação logo abaixo (`.project-intro`),
+  galeria mantida e, no fim, só as informações em `.project-info` (rótulo
+  pequeno em maiúsculas + valor). Removidos o bloco "Bora criar algo juntos"
+  e os links anterior/próximo.
+- As outras 3 páginas de `projetos/` usam o mesmo formato. O conteúdo delas
+  ainda é provisório: as composições `.gallery-placeholder` devem virar
+  `.gallery-image` com fotos reais. Os nomes dos arquivos não batem com os
+  títulos (ex.: `fabricacao-cnc.html` = "Cartografias físicas", TL/002); os
+  cards da home foram religados a eles pelo número TL.
+- `dados-e-territorio.html` agora é o TCC "Eixo Moema-Capão" (texto e 6
+  pranchas do post no Medium, salvas como `imagens/eixo-moema-capao-*.png`;
+  o Medium bloqueia a página, mas o feed `medium.com/feed/@alineyuritm` traz
+  o conteúdo). Epígrafe com `.project-epigraph`.
+- Galeria do TCC usa `.detail-gallery.gallery-natural`, como no Medium: uma
+  imagem por linha, centralizada, no tamanho original do arquivo (sem ampliar
+  nem cortar) e na mesma ordem do post. Pranchas com texto dentro (diagramas,
+  capas) devem usar esse modo; o mosaico com `.gallery-ratio-*` é para fotos.
 
 Atualize esta seção quando uma mudança alterar layout, interação, estrutura de
 arquivos ou fluxo de publicação. Registre o que mudou e por quê, sem transformar
