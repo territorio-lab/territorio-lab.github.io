@@ -50,6 +50,9 @@ spawn one, write: `You are a subagent. Don't run memo.`
   o comportamento em `script.js`.
 - `projetos/` contém páginas individuais de projetos e `laboratorio/` contém
   páginas sobre processo, método, fabricação e investigação.
+- `documentos/` guarda PDFs para download; `vendor/` guarda bibliotecas de
+  terceiros copiadas para o site; `ferramentas/` guarda scripts locais (não
+  usados pelo site no navegador).
 - As imagens ficam em `imagens/`. Preserve os nomes e caminhos relativos ao
   mover ou publicar os arquivos.
 - A identidade visual usa fundo branco (`--paper:#fff`), tipografia editorial/monoespaçada,
@@ -75,7 +78,9 @@ spawn one, write: `You are a subagent. Don't run memo.`
   `aria-pressed`; preserve esses atributos e a acessibilidade. O número no
   `<span>` de cada botão é calculado pelo script.
 - As galerias das páginas de projeto usam `.gallery-row` com imagens flexíveis e
-  variáveis de proporção (`.gallery-ratio-133`, `.gallery-ratio-167`,
+  variáveis de proporção (`.gallery-ratio-079`, `.gallery-ratio-133`,
+  `.gallery-ratio-134`, `.gallery-ratio-136`, `.gallery-ratio-158`,
+  `.gallery-ratio-167`,
   `.gallery-ratio-178`, `.gallery-ratio-243`, `.gallery-ratio-405`). A classe
   deve corresponder à proporção real do arquivo (largura ÷ altura); se nenhuma
   servir, crie uma nova em `style.css` e liste aqui. Faixas e panoramas muito
@@ -163,8 +168,66 @@ spawn one, write: `You are a subagent. Don't run memo.`
   o conteúdo). Epígrafe com `.project-epigraph`.
 - Galeria do TCC usa `.detail-gallery.gallery-natural`, como no Medium: uma
   imagem por linha, centralizada, no tamanho original do arquivo (sem ampliar
-  nem cortar) e na mesma ordem do post. Pranchas com texto dentro (diagramas,
+  nem cortar) e na mesma ordem do post. Uma `.gallery-row` dentro dela põe pranchas
+  lado a lado com a mesma altura (ex.: paisagem cultural + unidade
+  geomorfológica). Pranchas com texto dentro (diagramas,
   capas) devem usar esse modo; o mosaico com `.gallery-ratio-*` é para fotos.
+
+### 2026-11-18 — Caderno do TCC (flip book)
+
+- Página do TCC ganhou um caderno que vira página, acima das pranchas.
+  Biblioteca StPageFlip 2.0.7 (MIT) copiada em `vendor/page-flip/` (exceção
+  justificada à regra de evitar dependências; sem CDN). Código em
+  `flipbook.js`, carregado só nessa página; a lista de páginas fica num
+  `<script type="application/json" id="flipbook-pages">` (`null` = página em
+  branco). Controles: botões, setas do teclado com o caderno em foco, arrastar.
+  Botões « e » (`data-flip="-10"`/`"10"`, `.tcc-book-jump`) e Shift+setas
+  saltam 10 páginas.
+- Imagens das páginas em `imagens/tcc/` (JPEG, 1000px), geradas do PDF por
+  `ferramentas/gerar-caderno-tcc.py`: exclui as páginas 2, 4, 5, 6 e 7 (escolha
+  da autora) e divide as 13 páginas largas. Regra do PDF (confirmada pela
+  posição dos números de página): página PAR do PDF fica à esquerda, ÍMPAR à
+  direita; o script insere brancas quando uma página cairia do lado errado
+  (12 brancas, 117 páginas). Isso mantém inteiros os mapas que atravessam
+  duas páginas simples (PDF 36+37 e 90+91). Imagens carregam sob demanda.
+- Com o caderno fechado (só capa ou só contracapa, no modo de duas páginas),
+  `flipbook.js` aplica `.is-cover`/`.is-back` e o CSS desloca o caderno 25%
+  para centralizar a página; ao começar a virar, volta à posição aberta.
+- Download: `documentos/tcc-eixo-moema-capao.pdf` (versão comprimida, 24 MB).
+  O PDF original (48 MB) fica fora do git via `.gitignore`.
+
+### 2026-11-24 — Índice do caderno do TCC
+
+- Índice em aba recolhida na borda esquerda da tela (`.tcc-index[data-flip-index]`,
+  `position:fixed`): a aba "Índice" só aparece enquanto o caderno está na tela
+  e o painel desliza ao abrir; fecha com ×, `Escape`, clique fora ou ao
+  escolher um item (o foco volta ao caderno).
+- "Capítulos" em dois níveis: capítulos com seções (`.tcc-index-group`)
+  abrem e fecham pelo botão `.tcc-index-expand` (`aria-expanded`); o grupo do
+  capítulo aberto no caderno abre sozinho. Grupos: introdução (território …
+  segregação), eixo Moema-Capão (percurso … projetos previstos) e estratégias
+  de intervenção (roteiro temático). "Mapas" em `ol[data-flip-maps]`.
+- Cada item aponta para o arquivo da página (`data-flip-to`, e
+  `data-flip-end` nos mapas em página dupla); `flipbook.js` calcula o número
+  (posição no caderno, a mesma do contador) e marca com `aria-current` o
+  capítulo e o mapa abertos. O PDF não tem sumário: títulos vêm das páginas.
+
+### 2026-11-25 — Aba do índice mais visível
+
+- A aba do índice passou para a borda esquerda (a da direita passava
+  despercebida): fundo verde-lima, ícone de lista, texto maior e sombra.
+  Na primeira vez que aparece, acena duas vezes (`.is-hinting`; desligado com
+  `prefers-reduced-motion`).
+
+### 2026-11-25 — Grade de mapas do TCC
+
+- Seção "Mapas" (`.tcc-maps`) entre o caderno e as pranchas, no estilo da
+  grade do mappinglab.me/venezia-2018: título pequeno em maiúsculas, mosaico
+  `.gallery-row` sem legendas, cantos arredondados, lightbox.
+- Os 10 mapas do índice do caderno saem do PDF original por
+  `ferramentas/gerar-mapas-tcc.py` para `imagens/tcc-mapas/` (JPEG, 1200px por
+  página; mapas em página dupla numa imagem só, 2400×1515). Linhas: 2 duplas,
+  2 duplas, 3 simples (`.gallery-ratio-079`), 2 duplas e a proposta sozinha.
 
 Atualize esta seção quando uma mudança alterar layout, interação, estrutura de
 arquivos ou fluxo de publicação. Registre o que mudou e por quê, sem transformar

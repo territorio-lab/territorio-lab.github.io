@@ -8,6 +8,8 @@
   <title>Eixo Moema-Capão | Território Lab</title>
   <link rel="stylesheet" href="../style.css">
   <script src="../script.js" defer></script>
+  <script src="../vendor/page-flip/page-flip.browser.js" defer></script>
+  <script src="../flipbook.js" defer></script>
 </head>
 <body class="project-page">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -42,13 +44,130 @@
         <cite>O Rappa, “O Rodo Cotidiano”</cite>
       </blockquote>
     </div>
+    <section class="tcc-book" aria-label="Caderno do TCC">
+      <div class="tcc-index" data-flip-index>
+        <button class="tcc-index-tab" type="button" aria-expanded="false" aria-controls="tcc-index-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>Índice</span></button>
+        <nav class="tcc-index-panel" id="tcc-index-panel" aria-label="Índice do caderno">
+          <div class="tcc-index-top">
+            <h2 class="tcc-index-title">Índice do caderno</h2>
+            <button class="tcc-index-close" type="button" aria-label="Fechar índice">×</button>
+          </div>
+          <div class="tcc-index-body">
+            <h3 class="tcc-index-heading">Capítulos</h3>
+            <ol class="tcc-index-list">
+              <li><button type="button" data-flip-to="p001.jpg"><span>capa</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p009.jpg"><span>considerações iniciais</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li class="tcc-index-group">
+                <div class="tcc-index-row">
+                  <button type="button" data-flip-to="p010.jpg"><span>introdução</span> <span class="tcc-index-page" data-flip-page></span></button>
+                  <button class="tcc-index-expand" type="button" aria-expanded="false" aria-controls="tcc-index-sub-2" aria-label="Mostrar seções de introdução"></button>
+                </div>
+                <div class="tcc-index-sub" id="tcc-index-sub-2">
+                  <ol class="tcc-index-list">
+                    <li><button type="button" data-flip-to="p013.jpg"><span>o território e o cotidiano na cidade do trabalho</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p017.jpg"><span>a cidade como prática</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p021.jpg"><span>dimensionamento do problema</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p022.jpg"><span>a mobilidade urbana em São Paulo</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p027.jpg"><span>dinâmicas globais e a construção da metrópole em um país periférico</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p033.jpg"><span>de várzea à cidade</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p039.jpg"><span>segregação urbana e o quadrante sudoeste</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                  </ol>
+                </div>
+              </li>
+              <li class="tcc-index-group">
+                <div class="tcc-index-row">
+                  <button type="button" data-flip-to="p042.jpg"><span>eixo Moema-Capão</span> <span class="tcc-index-page" data-flip-page></span></button>
+                  <button class="tcc-index-expand" type="button" aria-expanded="false" aria-controls="tcc-index-sub-3" aria-label="Mostrar seções de eixo Moema-Capão"></button>
+                </div>
+                <div class="tcc-index-sub" id="tcc-index-sub-3">
+                  <ol class="tcc-index-list">
+                    <li><button type="button" data-flip-to="p047.jpg"><span>(re)construindo o percurso</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p048.jpg"><span>histórico da ocupação</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p057.jpg"><span>dinâmicas atuais</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p061.jpg"><span>paradigmas enfrentados</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p063.jpg"><span>parâmetros adotados</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p070.jpg"><span>referências projetuais</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                    <li><button type="button" data-flip-to="p072-esq.jpg"><span>projetos previstos</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                  </ol>
+                </div>
+              </li>
+              <li class="tcc-index-group">
+                <div class="tcc-index-row">
+                  <button type="button" data-flip-to="p074.jpg"><span>estratégias de intervenção</span> <span class="tcc-index-page" data-flip-page></span></button>
+                  <button class="tcc-index-expand" type="button" aria-expanded="false" aria-controls="tcc-index-sub-4" aria-label="Mostrar seções de estratégias de intervenção"></button>
+                </div>
+                <div class="tcc-index-sub" id="tcc-index-sub-4">
+                  <ol class="tcc-index-list">
+                    <li><button type="button" data-flip-to="p080.jpg"><span>projeto: roteiro temático</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+                  </ol>
+                </div>
+              </li>
+              <li><button type="button" data-flip-to="p096.jpg"><span>referências bibliográficas</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+            </ol>
+            <h3 class="tcc-index-heading">Mapas</h3>
+            <ol class="tcc-index-list" data-flip-maps>
+              <li><button type="button" data-flip-to="p036.jpg" data-flip-end="p037.jpg"><span>bacias hidrográficas</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p040.jpg" data-flip-end="p041.jpg"><span>mapa da desigualdade</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p043-esq.jpg" data-flip-end="p043-dir.jpg"><span>evolução da mancha urbana</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p046-esq.jpg" data-flip-end="p046-dir.jpg"><span>o eixo Moema-Capão</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p056.jpg"><span>padrões de deslocamento</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p060.jpg"><span>eixo de intervenção e área de influência</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p062.jpg"><span>centralidades</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p064-esq.jpg" data-flip-end="p064-dir.jpg"><span>favelas e área de influência</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p069-esq.jpg" data-flip-end="p069-dir.jpg"><span>perfil do percurso</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+              <li><button type="button" data-flip-to="p094-esq.jpg" data-flip-end="p094-dir.jpg"><span>demandas e proposta de intervenção</span> <span class="tcc-index-page" data-flip-page></span></button></li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <div class="tcc-book-main">
+        <div class="tcc-book-stage" data-flip-stage tabindex="0" aria-describedby="tcc-book-help">
+          <div id="flipbook" class="flipbook" data-base="../imagens/tcc/"></div>
+        </div>
+        <div class="tcc-book-controls">
+          <button class="tcc-book-button tcc-book-jump" type="button" data-flip="-10" aria-label="Voltar 10 páginas" title="Voltar 10 páginas">«</button>
+          <button class="tcc-book-button" type="button" data-flip="prev" aria-label="Página anterior">←</button>
+          <span class="tcc-book-status" data-flip-status aria-live="polite">1 / 117</span>
+          <button class="tcc-book-button" type="button" data-flip="next" aria-label="Próxima página">→</button>
+          <button class="tcc-book-button tcc-book-jump" type="button" data-flip="10" aria-label="Avançar 10 páginas" title="Avançar 10 páginas">»</button>
+        </div>
+        <p class="tcc-book-download"><a href="../documentos/tcc-eixo-moema-capao.pdf" download>Baixar o caderno em PDF (24 MB)</a></p>
+      </div>
+      <p id="tcc-book-help" class="sr-only">Clique ou arraste as páginas, use os botões ou as setas do teclado para folhear o caderno (com Shift, as setas avançam e voltam 10 páginas). Para leitura com leitor de tela, baixe o PDF.</p>
+      <script type="application/json" id="flipbook-pages">["p001.jpg", null, "p003.jpg", "p008.jpg", "p009.jpg", "p010.jpg", "p011.jpg", "p012.jpg", "p013.jpg", "p014.jpg", "p015.jpg", "p016.jpg", "p017.jpg", "p018.jpg", "p019.jpg", "p020.jpg", "p021.jpg", "p022.jpg", "p023.jpg", "p024.jpg", "p025.jpg", "p026.jpg", "p027.jpg", "p028.jpg", "p029.jpg", "p030.jpg", "p031.jpg", "p032.jpg", "p033.jpg", "p034.jpg", "p035.jpg", "p036.jpg", "p037.jpg", "p038.jpg", "p039.jpg", "p040.jpg", "p041.jpg", "p042.jpg", null, "p043-esq.jpg", "p043-dir.jpg", "p044.jpg", "p045.jpg", "p046-esq.jpg", "p046-dir.jpg", null, "p047.jpg", "p048.jpg", "p049.jpg", "p050.jpg", "p051.jpg", "p052.jpg", "p053.jpg", "p054.jpg", "p055.jpg", "p056.jpg", "p057.jpg", "p058.jpg", "p059.jpg", "p060.jpg", "p061.jpg", "p062.jpg", "p063.jpg", "p064-esq.jpg", "p064-dir.jpg", null, "p065.jpg", "p066.jpg", "p067.jpg", "p068.jpg", null, "p069-esq.jpg", "p069-dir.jpg", "p070.jpg", "p071.jpg", "p072-esq.jpg", "p072-dir.jpg", null, "p073.jpg", "p074.jpg", "p075.jpg", "p076-esq.jpg", "p076-dir.jpg", "p077-esq.jpg", "p077-dir.jpg", "p078.jpg", "p079.jpg", "p080.jpg", "p081.jpg", "p082.jpg", null, "p083-esq.jpg", "p083-dir.jpg", "p084.jpg", null, "p085-esq.jpg", "p085-dir.jpg", "p086.jpg", null, "p087-esq.jpg", "p087-dir.jpg", "p088.jpg", null, "p089-esq.jpg", "p089-dir.jpg", "p090.jpg", "p091.jpg", "p092.jpg", null, "p093-esq.jpg", "p093-dir.jpg", "p094-esq.jpg", "p094-dir.jpg", null, "p095.jpg", "p096.jpg", "p097.jpg"]</script>
+    </section>
+    <section class="tcc-maps" aria-labelledby="tcc-maps-title">
+      <h2 class="tcc-maps-title" id="tcc-maps-title">Mapas</h2>
+      <div class="detail-gallery tcc-maps-gallery">
+      <div class="gallery-row">
+        <figure class="gallery-image gallery-ratio-158 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/01-bacias-hidrograficas.jpg" data-lightbox-alt="Mapa: Bacias hidrográficas de São Paulo" aria-label="Ampliar mapa bacias hidrográficas de São Paulo"><img src="../imagens/tcc-mapas/01-bacias-hidrograficas.jpg" alt="Mapa: Bacias hidrográficas de São Paulo" width="2400" height="1515" loading="lazy" decoding="async"></figure>
+        <figure class="gallery-image gallery-ratio-158 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/02-mapa-da-desigualdade.jpg" data-lightbox-alt="Mapa: Mapa da desigualdade" aria-label="Ampliar mapa mapa da desigualdade"><img src="../imagens/tcc-mapas/02-mapa-da-desigualdade.jpg" alt="Mapa: Mapa da desigualdade" width="2400" height="1515" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="gallery-row">
+        <figure class="gallery-image gallery-ratio-158 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/03-evolucao-da-mancha-urbana.jpg" data-lightbox-alt="Mapa: Evolução da mancha urbana" aria-label="Ampliar mapa evolução da mancha urbana"><img src="../imagens/tcc-mapas/03-evolucao-da-mancha-urbana.jpg" alt="Mapa: Evolução da mancha urbana" width="2400" height="1515" loading="lazy" decoding="async"></figure>
+        <figure class="gallery-image gallery-ratio-158 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/04-eixo-moema-capao.jpg" data-lightbox-alt="Mapa: O eixo Moema-Capão" aria-label="Ampliar mapa o eixo Moema-Capão"><img src="../imagens/tcc-mapas/04-eixo-moema-capao.jpg" alt="Mapa: O eixo Moema-Capão" width="2400" height="1515" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="gallery-row">
+        <figure class="gallery-image gallery-ratio-079 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/05-padroes-de-deslocamento.jpg" data-lightbox-alt="Mapa: Padrões de deslocamento por modo coletivo" aria-label="Ampliar mapa padrões de deslocamento por modo coletivo"><img src="../imagens/tcc-mapas/05-padroes-de-deslocamento.jpg" alt="Mapa: Padrões de deslocamento por modo coletivo" width="1200" height="1515" loading="lazy" decoding="async"></figure>
+        <figure class="gallery-image gallery-ratio-079 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/06-eixo-de-intervencao.jpg" data-lightbox-alt="Mapa: Eixo de intervenção e área de influência" aria-label="Ampliar mapa eixo de intervenção e área de influência"><img src="../imagens/tcc-mapas/06-eixo-de-intervencao.jpg" alt="Mapa: Eixo de intervenção e área de influência" width="1200" height="1515" loading="lazy" decoding="async"></figure>
+        <figure class="gallery-image gallery-ratio-079 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/07-centralidades.jpg" data-lightbox-alt="Mapa: Centralidades" aria-label="Ampliar mapa centralidades"><img src="../imagens/tcc-mapas/07-centralidades.jpg" alt="Mapa: Centralidades" width="1200" height="1515" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="gallery-row">
+        <figure class="gallery-image gallery-ratio-158 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/08-favelas-e-area-de-influencia.jpg" data-lightbox-alt="Mapa: Favelas e área de influência" aria-label="Ampliar mapa favelas e área de influência"><img src="../imagens/tcc-mapas/08-favelas-e-area-de-influencia.jpg" alt="Mapa: Favelas e área de influência" width="2400" height="1515" loading="lazy" decoding="async"></figure>
+        <figure class="gallery-image gallery-ratio-158 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/09-perfil-do-percurso.jpg" data-lightbox-alt="Mapa: Perfil do percurso" aria-label="Ampliar mapa perfil do percurso"><img src="../imagens/tcc-mapas/09-perfil-do-percurso.jpg" alt="Mapa: Perfil do percurso" width="2400" height="1515" loading="lazy" decoding="async"></figure>
+      </div>
+      <div class="gallery-row">
+        <figure class="gallery-image gallery-ratio-158 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/tcc-mapas/10-demandas-e-proposta.jpg" data-lightbox-alt="Mapa: Demandas e proposta de intervenção" aria-label="Ampliar mapa demandas e proposta de intervenção"><img src="../imagens/tcc-mapas/10-demandas-e-proposta.jpg" alt="Mapa: Demandas e proposta de intervenção" width="2400" height="1515" loading="lazy" decoding="async"></figure>
+      </div>
+      </div>
+    </section>
     <div class="detail-gallery gallery-natural">
       <figure class="gallery-image lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-diagrama-paisagem.png" data-lightbox-alt="Diagrama: busca por uma unidade, unidade geomorfológica, estrutura urbana e paisagem cultural" aria-label="Ampliar diagrama da paisagem cultural"><img src="../imagens/eixo-moema-capao-diagrama-paisagem.png" alt="Diagrama: busca por uma unidade, unidade geomorfológica, estrutura urbana e paisagem cultural"></figure>
       <figure class="gallery-image lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-diagrama-eixo.png" data-lightbox-alt="Diagrama do eixo: eixo escolhido, conectar, permanecer e pertencer" aria-label="Ampliar diagrama do eixo"><img src="../imagens/eixo-moema-capao-diagrama-eixo.png" alt="Diagrama do eixo: eixo escolhido, conectar, permanecer e pertencer"></figure>
-      <figure class="gallery-image lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-capa.png" data-lightbox-alt="Capa do TCC Eixo Moema-Capão, com mapa da rede hidrográfica de São Paulo" aria-label="Ampliar capa do TCC"><img src="../imagens/eixo-moema-capao-capa.png" alt="Capa do TCC Eixo Moema-Capão, com mapa da rede hidrográfica de São Paulo"></figure>
-      <figure class="gallery-image lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-inquietacoes.png" data-lightbox-alt="Inquietações: a realidade do cotidiano em São Paulo, ciclista sob um viaduto" aria-label="Ampliar prancha Inquietações"><img src="../imagens/eixo-moema-capao-inquietacoes.png" alt="Inquietações: a realidade do cotidiano em São Paulo, ciclista sob um viaduto"></figure>
-      <figure class="gallery-image lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-paisagem-cultural.png" data-lightbox-alt="Paisagem cultural como chancela: favela na Marginal Pinheiros (Luiz Prado, 1990) e diagrama entre processos antrópicos e cósmicos" aria-label="Ampliar prancha Paisagem cultural"><img src="../imagens/eixo-moema-capao-paisagem-cultural.png" alt="Paisagem cultural como chancela: favela na Marginal Pinheiros (Luiz Prado, 1990) e diagrama entre processos antrópicos e cósmicos"></figure>
-      <figure class="gallery-image lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-unidade-geomorfologica.png" data-lightbox-alt="Unidade geomorfológica: bacia do Alto Tietê, com o eixo inserido na bacia do rio Pinheiros" aria-label="Ampliar prancha Unidade geomorfológica"><img src="../imagens/eixo-moema-capao-unidade-geomorfologica.png" alt="Unidade geomorfológica: bacia do Alto Tietê, com o eixo inserido na bacia do rio Pinheiros"></figure>
+      <div class="gallery-row">
+        <figure class="gallery-image gallery-ratio-136 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-paisagem-cultural.png" data-lightbox-alt="Paisagem cultural como chancela: favela na Marginal Pinheiros (Luiz Prado, 1990) e diagrama entre processos antrópicos e cósmicos" aria-label="Ampliar prancha Paisagem cultural"><img src="../imagens/eixo-moema-capao-paisagem-cultural.png" alt="Paisagem cultural como chancela: favela na Marginal Pinheiros (Luiz Prado, 1990) e diagrama entre processos antrópicos e cósmicos"></figure>
+        <figure class="gallery-image gallery-ratio-134 lightbox-trigger" role="button" tabindex="0" data-lightbox-src="../imagens/eixo-moema-capao-unidade-geomorfologica.png" data-lightbox-alt="Unidade geomorfológica: bacia do Alto Tietê, com o eixo inserido na bacia do rio Pinheiros" aria-label="Ampliar prancha Unidade geomorfológica"><img src="../imagens/eixo-moema-capao-unidade-geomorfologica.png" alt="Unidade geomorfológica: bacia do Alto Tietê, com o eixo inserido na bacia do rio Pinheiros"></figure>
+      </div>
     </div>
     <dl class="project-info">
       <div><dt>Categoria</dt><dd>Trabalho de Conclusão de Curso · Arquitetura e Urbanismo</dd></div>

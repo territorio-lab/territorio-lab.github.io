@@ -1033,14 +1033,26 @@ button {
   overflow:hidden;
   cursor:zoom-in
 }
+.gallery-ratio-079 {
+  --image-ratio:.792;
+}
 .gallery-ratio-133 {
   --image-ratio:1.33;
+}
+.gallery-ratio-134 {
+  --image-ratio:1.338;
+}
+.gallery-ratio-136 {
+  --image-ratio:1.359;
 }
 .gallery-ratio-167 {
   --image-ratio:1.67;
 }
 .gallery-ratio-178 {
   --image-ratio:1.778;
+}
+.gallery-ratio-158 {
+  --image-ratio:1.584;
 }
 .gallery-ratio-243 {
   --image-ratio:2.43;
@@ -1066,6 +1078,25 @@ button {
   max-width:100%;
   height:auto;
   object-fit:contain
+}
+/* Linha dentro da galeria em tamanho original: imagens lado a lado com a
+   mesma altura (mosaico), sem cortes porque a classe segue a proporção real. */
+.gallery-natural .gallery-row {
+  align-items:flex-start
+}
+.gallery-natural .gallery-row .gallery-image {
+  flex:var(--image-ratio,1) 1 0;
+  aspect-ratio:var(--image-ratio,1)
+}
+.gallery-natural .gallery-row .gallery-image img {
+  width:100%;
+  height:100%
+}
+@media(max-width:760px) {
+  .gallery-natural .gallery-row .gallery-image {
+    flex:none;
+    width:100%
+  }
 }
 .gallery-image img {
   display:block;
@@ -1630,4 +1661,360 @@ body.project-page {
   font-size:.875rem;
   font-weight:500;
   color:var(--muted)
+}
+
+/* Caderno do TCC (flip book, flipbook.js) */
+.tcc-book {
+  margin:0 0 3rem
+}
+.tcc-book-stage {
+  padding:1rem 0;
+  outline-offset:6px
+}
+.flipbook {
+  margin-inline:auto
+}
+.tcc-book-stage.is-ready .flipbook {
+  transition:transform .6s ease
+}
+@media(prefers-reduced-motion:reduce) {
+  .tcc-book-stage.is-ready .flipbook {
+    transition:none
+  }
+}
+/* Caderno fechado: a capa ocupa a metade direita e a contracapa a esquerda;
+   desloca um quarto da largura para centralizá-las (flipbook.js). */
+.tcc-book-stage {
+  overflow-x:clip
+}
+.tcc-book-stage.is-cover .flipbook {
+  transform:translateX(-25%)
+}
+.tcc-book-stage.is-back .flipbook {
+  transform:translateX(25%)
+}
+.flipbook-page {
+  background:#fff;
+  overflow:hidden
+}
+.flipbook-page img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  user-select:none
+}
+.flipbook .stf__item {
+  box-shadow:0 0 0 1px rgba(0,0,0,.08)
+}
+.tcc-book-controls {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.75rem;
+  margin-top:1rem
+}
+.tcc-book-button {
+  width:2.75rem;
+  height:2.75rem;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:#fff;
+  color:var(--ink);
+  font-size:1.1rem;
+  cursor:pointer
+}
+.tcc-book-button:hover,
+.tcc-book-button:focus-visible {
+  background:var(--ink);
+  color:#fff;
+  border-color:var(--ink)
+}
+/* Saltos de 10 páginas: mais discretos que as setas de página a página. */
+.tcc-book-jump {
+  border-style:dashed;
+  font-size:1.25rem;
+  line-height:1
+}
+.tcc-book-status {
+  min-width:5.5rem;
+  text-align:center;
+  font-size:.9rem;
+  font-variant-numeric:tabular-nums
+}
+.tcc-book-download {
+  text-align:center;
+  margin:1rem 0 0;
+  font-size:.95rem
+}
+.tcc-book-download a {
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:3px
+}
+.tcc-book-main {
+  min-width:0
+}
+
+/* Índice do caderno (flipbook.js): aba recolhida na borda esquerda da tela,
+   visível só enquanto o caderno está na tela; ao abrir, o painel desliza.
+   Na primeira vez que a aba aparece, ela "acena" (.is-hinting). */
+.tcc-index {
+  --tcc-index-w:min(19rem,86vw);
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  z-index:60;
+  width:var(--tcc-index-w);
+  transform:translateX(calc(-100% - 3.5rem));
+  transition:transform .35s ease
+}
+.tcc-index.is-available {
+  transform:translateX(-100%)
+}
+.tcc-index.is-open {
+  transform:none
+}
+.tcc-index-tab {
+  position:absolute;
+  top:50%;
+  left:100%;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  padding:1.1rem .7rem;
+  border:1px solid var(--ink);
+  /* A aba está girada 180°: lados e cantos aparecem espelhados na tela. */
+  border-right:0;
+  border-radius:8px 0 0 8px;
+  background:var(--lime);
+  color:var(--ink);
+  box-shadow:4px 4px 16px rgba(0,0,0,.18);
+  font:inherit;
+  font-size:.8rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  writing-mode:vertical-rl;
+  transform:translateY(-50%) rotate(180deg);
+  cursor:pointer;
+  transition:padding .2s ease
+}
+.tcc-index-tab svg {
+  width:1.15rem;
+  height:1.15rem;
+  transform:rotate(90deg)
+}
+.tcc-index-tab:hover {
+  padding-left:1rem
+}
+.tcc-index.is-open .tcc-index-tab {
+  box-shadow:none
+}
+.tcc-index-tab:focus-visible {
+  outline:2px solid var(--ink);
+  outline-offset:3px
+}
+.tcc-index.is-hinting .tcc-index-tab {
+  animation:tcc-index-hint 1.4s ease .4s 2
+}
+@keyframes tcc-index-hint {
+  0%,100% { margin-left:0 }
+  30% { margin-left:.7rem }
+  55% { margin-left:0 }
+  75% { margin-left:.35rem }
+}
+.tcc-index-panel {
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  background:#fff;
+  border-right:1px solid var(--line);
+  box-shadow:12px 0 32px rgba(0,0,0,.08);
+  visibility:hidden;
+  transition:visibility 0s .35s
+}
+.tcc-index.is-open .tcc-index-panel {
+  visibility:visible;
+  transition:none
+}
+.tcc-index-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:.9rem .75rem .9rem 1.1rem;
+  border-bottom:1px solid var(--line)
+}
+.tcc-index-title {
+  margin:0;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase
+}
+.tcc-index-close {
+  width:2rem;
+  height:2rem;
+  border:0;
+  border-radius:50%;
+  background:none;
+  color:var(--ink);
+  font-size:1.3rem;
+  line-height:1;
+  cursor:pointer
+}
+.tcc-index-close:hover,
+.tcc-index-close:focus-visible {
+  background:rgba(0,0,0,.06)
+}
+.tcc-index-body {
+  flex:1;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  padding:.25rem .6rem 1.5rem
+}
+.tcc-index-heading {
+  margin:1rem .5rem .3rem;
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted)
+}
+.tcc-index-list {
+  list-style:none;
+  margin:0;
+  padding:0
+}
+.tcc-index-list [data-flip-to] {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:.6rem;
+  width:100%;
+  padding:.3rem .5rem;
+  border:0;
+  border-radius:4px;
+  background:none;
+  color:var(--ink);
+  font:inherit;
+  font-size:.78rem;
+  line-height:1.3;
+  text-align:left;
+  cursor:pointer
+}
+.tcc-index-list [data-flip-to]:hover {
+  background:rgba(0,0,0,.05)
+}
+.tcc-index-list button:focus-visible {
+  outline:2px solid var(--ink);
+  outline-offset:-2px
+}
+.tcc-index-list [data-flip-to][aria-current] {
+  background:var(--ink);
+  color:#fff
+}
+.tcc-index-page {
+  flex:none;
+  font-size:.68rem;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums
+}
+.tcc-index-list [aria-current] .tcc-index-page {
+  color:inherit
+}
+/* Capítulo com seções: linha com o link e o botão de abrir/fechar. */
+.tcc-index-row {
+  display:flex;
+  align-items:center;
+  gap:.15rem
+}
+.tcc-index-row [data-flip-to] {
+  flex:1;
+  min-width:0
+}
+.tcc-index-group.has-current > .tcc-index-row [data-flip-to] {
+  font-weight:700
+}
+.tcc-index-expand {
+  flex:none;
+  width:1.6rem;
+  height:1.6rem;
+  border:0;
+  border-radius:4px;
+  background:none;
+  color:var(--ink);
+  cursor:pointer
+}
+.tcc-index-expand::before {
+  content:"";
+  display:block;
+  width:.4rem;
+  height:.4rem;
+  margin:auto;
+  border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:translateY(-25%) rotate(45deg);
+  transition:transform .25s ease
+}
+.tcc-index-group.is-open .tcc-index-expand::before {
+  transform:translateY(25%) rotate(-135deg)
+}
+.tcc-index-expand:hover {
+  background:rgba(0,0,0,.05)
+}
+.tcc-index-sub {
+  display:grid;
+  grid-template-rows:0fr;
+  visibility:hidden;
+  transition:grid-template-rows .25s ease,visibility 0s .25s
+}
+.tcc-index-group.is-open > .tcc-index-sub {
+  grid-template-rows:1fr;
+  visibility:visible;
+  transition:grid-template-rows .25s ease
+}
+.tcc-index-sub > .tcc-index-list {
+  min-height:0;
+  overflow:hidden;
+  margin-left:.6rem;
+  padding-left:.35rem;
+  border-left:1px solid var(--line)
+}
+.tcc-index-sub [data-flip-to] {
+  font-size:.74rem
+}
+@media(prefers-reduced-motion:reduce) {
+  .tcc-index,
+  .tcc-index-panel,
+  .tcc-index-sub,
+  .tcc-index-expand::before {
+    transition:none
+  }
+  .tcc-index.is-hinting .tcc-index-tab {
+    animation:none
+  }
+}
+
+/* Mapas do TCC (referência: grade do mappinglab.me/venezia-2018): título
+   pequeno em maiúsculas, mosaico sem legendas e cantos levemente arredondados.
+   Imagens geradas por ferramentas/gerar-mapas-tcc.py. */
+.tcc-maps {
+  margin:clamp(2.5rem,6vw,4.5rem) 0 0
+}
+.tcc-maps-title {
+  margin:0;
+  padding:1rem 0;
+  font-family:var(--inter);
+  font-size:.875rem;
+  font-weight:500;
+  letter-spacing:.02em;
+  text-transform:uppercase
+}
+.project-page .tcc-maps-gallery {
+  margin:0 0 clamp(2.5rem,6vw,4.5rem)
+}
+.tcc-maps-gallery .gallery-image {
+  border-radius:4px
 }
